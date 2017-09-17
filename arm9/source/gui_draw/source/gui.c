@@ -1388,9 +1388,7 @@ t_GUIScreen *buildScreenMenu()
 }
 
 int OptionsHandler(t_GUIZone *zone, int msg, int param, void *arg)
-{
-	FIFO_DRAINWRITE();
-	
+{	
 	switch (msg)
 	{
 	case GUI_DRAW:

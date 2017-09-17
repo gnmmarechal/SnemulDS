@@ -45,15 +45,7 @@ int myLCDSwap()
 int get_joypad()
 {
 	int res = 0;
-    
-	//old libnds code
-    /*
-    #define KEYS_CUR (( ((~KEYINPUT)&0x3ff) | (((~MyIPC->buttons_xy_folding)&3)<<10) | (((~MyIPC->buttons_xy_folding)<<6) & (KEY_TOUCH|KEY_LID) ))^KEY_LID)	
-	keys = KEYS_CUR;
-    */
-    
-	//new
-	keys = keysPressed();
+    keys = keysPressed();
 	
 #if 0
 		if( (keys & KEY_L))

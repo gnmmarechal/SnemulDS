@@ -31,6 +31,7 @@ USA
 #include "wifi_arm9.h"
 #include "dswifi9.h"
 #include "client_http_handler.h"
+#include <stdio.h>
 
 #endif
 
@@ -71,8 +72,7 @@ void switch_dswnifi_mode(u8 mode){
 		if(Wifi_InitDefault(WFC_CONNECT) == true)
 		{
 			//char buf[64];
-			//sprintf(buf,"connected: IP: %s",(char*)print_ip((u32)Wifi_GetIP()));
-			//consoletext(64*2-32,(char *)&buf[0],0);
+			printf("connected: IP: %s",(char*)print_ip((uint32)Wifi_GetIP()));
 			
 			//works fine both
 			//new connection
@@ -84,10 +84,11 @@ void switch_dswnifi_mode(u8 mode){
 			SpecificIPC->dswifiSrv.dswifi_setup = true;
 		}
 		else{
-			//printf("     phailed conn! ________________________________");
+			printf("     phailed conn! ________________________________");
 		}
 	}
 	
+	//while(1);
 }
 
 #endif
