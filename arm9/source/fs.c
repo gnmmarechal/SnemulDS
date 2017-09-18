@@ -34,7 +34,7 @@ GNU General Public License for more details.
 #include <sys/dir.h>
 #include <fcntl.h>
 #include "fsfat_layer.h"
-
+#include "file.h"
 
 #include "gfx.h"
 #include "cfg.h"
