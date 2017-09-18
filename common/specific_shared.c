@@ -65,21 +65,16 @@ void HandleFifoNotEmptyWeakRef(uint32 cmd1,uint32 cmd2,uint32 cmd3,uint32 cmd4){
 		}
 		break;
 		
-		//must be called from within timer irqs
-		//update emulated registers from within nds FIFO irqs!
-		case(FIFO_SEND_EXT):{
-			
-			
-		}
-		break;
-		
 		//Process the packages (signal) that sent earlier FIFO_SEND_EXT
-		case(FIFO_RECV_EXT):{
-			//Handle_SoftFIFORECV();//does not work
+		case(FIFO_SOFTFIFO_READ_EXT):{
+		
 		}
 		break;
 		
-		
+		case(FIFO_SOFTFIFO_WRITE_EXT):{
+			SetSoftFIFO(cmd2);
+		}
+		break;
 		
 		
 		//ARM7 command handler
@@ -87,10 +82,14 @@ void HandleFifoNotEmptyWeakRef(uint32 cmd1,uint32 cmd2,uint32 cmd3,uint32 cmd4){
 		
 		//ARM7 Only
 		case(FIFO_POWERCNT_ON):{
-			powerON((u16)cmd2);
+			powerON((uint16)cmd2);
 		}
 		break;
 		
+		case (FIFO_POWERMGMT_WRITE):{
+			PowerManagementDeviceWrite(PM_SOUND_AMP, (int)cmd2>>16);  // void * data == command2
+		}
+		break;
 		
 		//arm9 wants to send a WIFI context block address / userdata is always zero here
 		case(WIFI_STARTUP):{
@@ -160,11 +159,6 @@ void HandleFifoNotEmptyWeakRef(uint32 cmd1,uint32 cmd2,uint32 cmd3,uint32 cmd4){
 		}
 		break;
 		
-		//deprecate later
-		case 0x00000008:{
-			PowerManagementDeviceWrite(PM_SOUND_AMP, (int)cmd2>>16);  // void * data == command2
-		}
-		break;
 		
 		#endif
 		
@@ -207,8 +201,8 @@ void update_ram_snes(){
 #ifdef ARM7
 //small hack to update IPC APU ports with APU assembly core (on ARM7)
 void update_spc_ports(){
-    ADDR_PORT_SNES_TO_SPC       =   (uint32)(u8*)PORT_SNES_TO_SPC;
-    ADDR_PORT_SPC_TO_SNES   =   (uint32)(u8*)PORT_SPC_TO_SNES;
+    ADDR_PORT_SNES_TO_SPC       =   (uint32)(uint8*)PORT_SNES_TO_SPC;
+    ADDR_PORT_SPC_TO_SNES   =   (uint32)(uint8*)PORT_SPC_TO_SNES;
 }
 #endif
 

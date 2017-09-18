@@ -38,23 +38,23 @@ USA
 #ifdef ARM9
 
 //0 idle, 1 nifi, 2 dswnifi
-void switch_dswnifi_mode(u8 mode){
+void switch_dswnifi_mode(uint8 mode){
 
 	//wifi minimal setup
-	if(mode == (u8)dswifi_wifimode){
+	if(mode == (uint8)dswifi_wifimode){
 		SpecificIPC->dswifiSrv.dsnwifisrv_mode = dswifi_wifimode;
 		SpecificIPC->dswifiSrv.dsnwifisrv_stat = ds_searching_for_multi_servernotaware;
 		SpecificIPC->dswifiSrv.dswifi_setup = false;	//set for RPC services
 	}
 	//nifi minimal setup
-	else if (mode == (u8)dswifi_nifimode){
+	else if (mode == (uint8)dswifi_nifimode){
 		//nifi
 		SpecificIPC->dswifiSrv.dsnwifisrv_mode = dswifi_nifimode;
 		SpecificIPC->dswifiSrv.dswifi_setup = false;
 	}
 	
 	//idle mode minimal setup
-	else if (mode == (u8)dswifi_idlemode){
+	else if (mode == (uint8)dswifi_idlemode){
 		//nifi
 		SpecificIPC->dswifiSrv.dsnwifisrv_mode = dswifi_idlemode;
 		SpecificIPC->dswifiSrv.dswifi_setup = false;

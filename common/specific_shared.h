@@ -33,7 +33,7 @@ typedef struct sSpecificIPC {
 //---------------------------------------------------------------------------------
 	//project specific
 	uint32 * IPC_ADDR;
-    u8 * ROM;   		//pointer to ROM page
+    uint8 * ROM;   		//pointer to ROM page
     int rom_size;   	//rom total size
 	
 	//dswnifi specific
@@ -50,7 +50,7 @@ typedef struct sSpecificIPC {
     uint32 APU_ADDR_CNT;
     uint32 APU_ADDR_CMD;
 
-    u8 APU_ADDR_BLKP[4];
+    uint8 APU_ADDR_BLKP[4];
     uint32 APU_ADDR_BLK;     //deprecated in v6 but declared
     
     uint32 	TIM0, TIM1, TIM2;

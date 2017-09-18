@@ -292,7 +292,7 @@ doneDecodeCached:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Function called with:
 @ r0 - int Number of samples to mix
-@ r1 - u16* mix buffer (left first, right is always MIXBUFSIZE * 4 bytes ahead
+@ r1 - uint16* mix buffer (left first, right is always MIXBUFSIZE * 4 bytes ahead
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 /*
@@ -303,21 +303,21 @@ int envCount;           8
 int envSpeed;           12
 s16 prevDecode[4];      16
 s16 decoded[16];        24
-u16 decaySpeed;         56
-u16 sustainSpeed;       58
+uint16 decaySpeed;         56
+uint16 sustainSpeed;       58
 s16 envx;               60
 s16 prevSamp1;          62
 s16 prevSamp2;          64
-u16 blockPos;           66
+uint16 blockPos;           66
 s16 leftCalcVolume;     68
 s16 rightCalcVolume;    70
-u8 envState;            72
-u8 sustainLevel;        73
+uint8 envState;            72
+uint8 sustainLevel;        73
 s8 leftVolume;          74
 s8 rightVolume;         75
 s8 keyWait;             76
 bool active;            77
-u8 brrHeader;           78
+uint8 brrHeader;           78
 bool echoEnabled;       79
 };
 */
