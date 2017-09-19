@@ -186,8 +186,11 @@ int main(int _argc, sint8 **_argv) {
 	//switch_dswnifi_mode((uint8)dswifi_nifimode);
 	//wifi: 
 	//switch_dswnifi_mode((uint8)dswifi_wifimode);
-	
-	
+	/*
+	if(Wifi_InitDefault(true) == true){
+		printf("connected: IP: %s",(char*)print_ip((uint32)Wifi_GetIP()));
+	}
+	*/
 	int ret=FS_init();
 	if (ret == 0)
 	{
