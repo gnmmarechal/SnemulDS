@@ -54,7 +54,7 @@ OBJDIR 	=	./$(BUILD)
 VPATH 	=	$(DIR_SRC)
 OBJPROG =	$(addprefix $(OBJDIR)/, $(ELF_ARM7))
 
-all: $(OBJDIR)|	nds_arm7_ld_crt0.o	$(BINSTRIP_RULE_7)
+all: $(OBJDIR)|	$(TARGET_LIBRARY_CRT0_FILE_7).o	$(BINSTRIP_RULE_7)
 #all: debug
 
 #Check $(OBJDIR) if not exists: create it
@@ -85,7 +85,7 @@ $(OBJDIR)/%.o : %.S
 	-@echo 'S Compile end: $@'
 
 #Special rule: compile crt0 for arm7 entrypoint, bring linkers here
-nds_arm7_ld_crt0.o:	$(TARGET_LIBRARY_LINKER_FILE_7)
+$(TARGET_LIBRARY_CRT0_FILE_7).o:	$(TARGET_LIBRARY_LINKER_FILE_7)
 	-@echo 'S Compile start: crt0s'
 	$(CC)	-x assembler-with-cpp	$(DIRLIBS_HDR)	$(DIRLIBS_SRC)	$(CC_ASFLAGS)	-o $(OBJDIR)/$@ -c $<
 	cp	-r $(TARGET_LIBRARY_LINKER_PATH_LD)nds_arm7_ld.ld $(CURDIR)
