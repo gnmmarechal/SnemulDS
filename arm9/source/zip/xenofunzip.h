@@ -25,8 +25,8 @@
 #define min(a,b) ((a)<(b)?(a):(b))
 #define err(e,m) {printf(e==-4?"memory error":m);return e;}
 
-//256K Buffer: speedup .zip operation
-#define BUFFER_SIZE (sint32)(256 * 1024)
+//128K Buffer: speedup .zip operation
+#define BUFFER_SIZE (sint32)(1024 * 128)
 
 /* PKZIP header definitions */
 #define ZIPMAG 0x4b50           /* two-byte zip lead-in */
