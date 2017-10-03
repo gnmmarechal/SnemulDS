@@ -22,7 +22,7 @@ Follow the steps at: https://github.com/cotodevel/ToolchainGenericDS to set up t
 now run "Make" inside SnemulDS folder, project should compile fine.
 
 3)
-After building simply copy snemul.cfg and snemulds.nds to root of your SD, and enjoy.
+After building simply copy snemul.cfg and snemulds.nds to root of your SD, add files to root:/snes/ folder, those can be either smc/zip
 
     
 to do:
