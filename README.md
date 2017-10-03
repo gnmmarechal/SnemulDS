@@ -12,8 +12,9 @@ Coto: SnemulDS 0.6b - added ZIP support:
 	c) The compressed file must use  .zip (deflate) or .gz, and the compressed .zip must have 1 only file
 
 
-
-
+UPDATE: After further testing, for .zip files just use fat32 and either 32K or 16K sectors.
+		FAT16 works but it's very slow.. for those cards it's best to use uncompressed files
+		Or get a new card, it works very fast on those things.
 1)
 You will need the NintendoDS toolchain "toolchain generic" to build these sources.
 Follow the steps at: https://github.com/cotodevel/ToolchainGenericDS to set up the Nintendo DS "toolchain generic" toolchain, GNU licensed. 
