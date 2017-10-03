@@ -20,11 +20,13 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#include "fsfat_layer.h"
+
 #define min(a,b) ((a)<(b)?(a):(b))
 #define err(e,m) {printf(e==-4?"memory error":m);return e;}
 
-//minimal size, for embedded env.
-#define BUFFER_SIZE 512
+//256K Buffer: speedup .zip operation
+#define BUFFER_SIZE (sint32)(256 * 1024)
 
 /* PKZIP header definitions */
 #define ZIPMAG 0x4b50           /* two-byte zip lead-in */
